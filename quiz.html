@@ -3,51 +3,70 @@
 <head>
     <title>MPSC Quiz</title>
 
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f0f2f5;
+        }
+        .quiz-card {
+            max-width: 700px;
+            margin: auto;
+            border-radius: 15px;
+        }
+        .option-btn {
+            transition: 0.3s;
+        }
+        .option-btn:hover {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .correct {
+            background-color: #28a745 !important;
+            color: white;
+        }
+        .wrong {
+            background-color: #dc3545 !important;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">MPSC Quiz</span>
-    </div>
-</nav>
-
 <div class="container mt-5">
 
-    <div class="card p-4 shadow">
+    <div class="card quiz-card shadow p-4">
 
-        <!-- Language Toggle -->
-        <div class="d-flex justify-content-between mb-2">
+        <!-- Top Bar -->
+        <div class="d-flex justify-content-between align-items-center">
             <div>
-                <button class="btn btn-sm btn-primary" onclick="setLang('en')">English</button>
+                <button class="btn btn-sm btn-primary" onclick="setLang('en')">EN</button>
                 <button class="btn btn-sm btn-success" onclick="setLang('mr')">मराठी</button>
             </div>
             <div>
-                <span id="qNumber"></span> |
-                <span id="score"></span>
+                <b id="qNumber"></b> | <b id="score"></b>
             </div>
         </div>
 
+        <!-- Progress -->
+        <div class="progress mt-3">
+            <div id="progressBar" class="progress-bar" style="width:0%"></div>
+        </div>
+
         <!-- Question -->
-        <h4 id="question" class="mt-3"></h4>
+        <h4 id="question" class="mt-4"></h4>
 
         <!-- Options -->
         <div id="options" class="mt-3"></div>
 
-        <!-- Result -->
-        <p id="result" class="mt-3 fw-bold"></p>
-        <p id="explanation" class="text-muted"></p>
+        <!-- Explanation -->
+        <p id="explanation" class="mt-3 text-muted"></p>
 
-        <!-- Next Button -->
-        <div class="mt-3">
-            <button class="btn btn-secondary" onclick="nextQuestion()">Next</button>
-        </div>
+        <!-- Next -->
+        <button class="btn btn-dark mt-3" onclick="nextQuestion()">Next</button>
 
     </div>
 
@@ -75,10 +94,13 @@ function loadQuestion() {
     let q = data[current];
 
     document.getElementById("qNumber").innerText =
-        (lang === 'en' ? "Question " : "प्रश्न ") + (current + 1) + "/" + data.length;
+        (lang === 'en' ? "Q " : "प्रश्न ") + (current + 1) + "/" + data.length;
 
     document.getElementById("score").innerText =
         (lang === 'en' ? "Score: " : "गुण: ") + score;
+
+    let percent = ((current) / data.length) * 100;
+    document.getElementById("progressBar").style.width = percent + "%";
 
     let question = lang === 'en' ? q.question_en : q.question_mr;
     let options = lang === 'en' ? q.options_en : q.options_mr;
@@ -89,8 +111,8 @@ function loadQuestion() {
 
     options.forEach(opt => {
         optionsHtml += `
-            <button class="btn btn-outline-primary w-100 mt-2"
-                onclick="checkAnswer('${opt}')">
+            <button class="btn btn-outline-primary w-100 mt-2 option-btn"
+                onclick="checkAnswer(this,'${opt}')">
                 ${opt}
             </button>`;
     });
@@ -98,33 +120,35 @@ function loadQuestion() {
     document.getElementById("options").innerHTML = optionsHtml;
 }
 
-function checkAnswer(selected) {
+function checkAnswer(btn, selected) {
     let q = data[current];
 
     let correct = lang === 'en' ? q.answer_en : q.answer_mr;
     let explanation = lang === 'en' ? q.explanation_en : q.explanation_mr;
 
+    let buttons = document.querySelectorAll("#options button");
+
+    buttons.forEach(b => {
+        if (b.innerText === correct) {
+            b.classList.add("correct");
+        }
+        b.disabled = true;
+    });
+
     if (selected === correct) {
-        document.getElementById("result").innerText =
-            lang === 'en' ? "Correct" : "बरोबर";
+        btn.classList.add("correct");
         score++;
     } else {
-        document.getElementById("result").innerText =
-            lang === 'en' ? "Wrong" : "चूक";
+        btn.classList.add("wrong");
     }
 
     document.getElementById("explanation").innerText = explanation;
-
-    // Disable options after selection
-    let buttons = document.querySelectorAll("#options button");
-    buttons.forEach(btn => btn.disabled = true);
 }
 
 function nextQuestion() {
     current++;
 
     if (current < data.length) {
-        document.getElementById("result").innerText = "";
         document.getElementById("explanation").innerText = "";
         loadQuestion();
     } else {
@@ -137,12 +161,8 @@ function showResult() {
         <div class="container text-center mt-5">
             <div class="card p-5 shadow">
                 <h2>${lang === 'en' ? 'Quiz Completed' : 'क्विझ पूर्ण'}</h2>
-                <h4 class="mt-3">
-                    ${lang === 'en' ? 'Your Score' : 'तुमचे गुण'}: ${score}/${data.length}
-                </h4>
-                <a href="quiz.html" class="btn btn-primary mt-4">
-                    ${lang === 'en' ? 'Restart Quiz' : 'पुन्हा सुरू करा'}
-                </a>
+                <h3>${lang === 'en' ? 'Score' : 'गुण'}: ${score}/${data.length}</h3>
+                <a href="quiz.html" class="btn btn-primary mt-3">Restart</a>
             </div>
         </div>
     `;

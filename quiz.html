@@ -22,19 +22,30 @@
 
     <div class="card p-4 shadow">
 
-        <div class="d-flex justify-content-between">
-            <h5 id="qNumber"></h5>
-            <h5 id="score"></h5>
+        <!-- Language Toggle -->
+        <div class="d-flex justify-content-between mb-2">
+            <div>
+                <button class="btn btn-sm btn-primary" onclick="setLang('en')">English</button>
+                <button class="btn btn-sm btn-success" onclick="setLang('mr')">मराठी</button>
+            </div>
+            <div>
+                <span id="qNumber"></span> |
+                <span id="score"></span>
+            </div>
         </div>
 
+        <!-- Question -->
         <h4 id="question" class="mt-3"></h4>
 
+        <!-- Options -->
         <div id="options" class="mt-3"></div>
 
+        <!-- Result -->
         <p id="result" class="mt-3 fw-bold"></p>
         <p id="explanation" class="text-muted"></p>
 
-        <div class="mt-3 d-flex justify-content-between">
+        <!-- Next Button -->
+        <div class="mt-3">
             <button class="btn btn-secondary" onclick="nextQuestion()">Next</button>
         </div>
 
@@ -46,6 +57,7 @@
 let data = [];
 let current = 0;
 let score = 0;
+let lang = 'en';
 
 fetch('questions.json')
 .then(res => res.json())
@@ -54,20 +66,28 @@ fetch('questions.json')
     loadQuestion();
 });
 
+function setLang(l) {
+    lang = l;
+    loadQuestion();
+}
+
 function loadQuestion() {
     let q = data[current];
 
-    document.getElementById("qNumber").innerText = 
-        "Question " + (current + 1) + "/" + data.length;
+    document.getElementById("qNumber").innerText =
+        (lang === 'en' ? "Question " : "प्रश्न ") + (current + 1) + "/" + data.length;
 
-    document.getElementById("score").innerText = 
-        "Score: " + score;
+    document.getElementById("score").innerText =
+        (lang === 'en' ? "Score: " : "गुण: ") + score;
 
-    document.getElementById("question").innerText = q.question;
+    let question = lang === 'en' ? q.question_en : q.question_mr;
+    let options = lang === 'en' ? q.options_en : q.options_mr;
+
+    document.getElementById("question").innerText = question;
 
     let optionsHtml = "";
 
-    q.options.forEach(opt => {
+    options.forEach(opt => {
         optionsHtml += `
             <button class="btn btn-outline-primary w-100 mt-2"
                 onclick="checkAnswer('${opt}')">
@@ -81,16 +101,21 @@ function loadQuestion() {
 function checkAnswer(selected) {
     let q = data[current];
 
-    if (selected === q.answer) {
-        document.getElementById("result").innerText = "Correct";
+    let correct = lang === 'en' ? q.answer_en : q.answer_mr;
+    let explanation = lang === 'en' ? q.explanation_en : q.explanation_mr;
+
+    if (selected === correct) {
+        document.getElementById("result").innerText =
+            lang === 'en' ? "Correct" : "बरोबर";
         score++;
     } else {
-        document.getElementById("result").innerText = "Wrong";
+        document.getElementById("result").innerText =
+            lang === 'en' ? "Wrong" : "चूक";
     }
 
-    document.getElementById("explanation").innerText = q.explanation;
+    document.getElementById("explanation").innerText = explanation;
 
-    // Disable buttons after answer
+    // Disable options after selection
     let buttons = document.querySelectorAll("#options button");
     buttons.forEach(btn => btn.disabled = true);
 }
@@ -111,9 +136,13 @@ function showResult() {
     document.body.innerHTML = `
         <div class="container text-center mt-5">
             <div class="card p-5 shadow">
-                <h2>Quiz Completed</h2>
-                <h4 class="mt-3">Your Score: ${score}/${data.length}</h4>
-                <a href="quiz.html" class="btn btn-primary mt-4">Restart Quiz</a>
+                <h2>${lang === 'en' ? 'Quiz Completed' : 'क्विझ पूर्ण'}</h2>
+                <h4 class="mt-3">
+                    ${lang === 'en' ? 'Your Score' : 'तुमचे गुण'}: ${score}/${data.length}
+                </h4>
+                <a href="quiz.html" class="btn btn-primary mt-4">
+                    ${lang === 'en' ? 'Restart Quiz' : 'पुन्हा सुरू करा'}
+                </a>
             </div>
         </div>
     `;

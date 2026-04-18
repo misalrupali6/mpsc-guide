@@ -1,22 +1,104 @@
 [
   {
-    "question_en": "Who is the Father of Indian Constitution?",
-    "question_mr": "भारतीय संविधानाचे जनक कोण आहेत?",
-    "options_en": ["Mahatma Gandhi", "Dr. B.R. Ambedkar", "Nehru", "Rajendra Prasad"],
-    "options_mr": ["महात्मा गांधी", "डॉ. बाबासाहेब आंबेडकर", "नेहरू", "राजेंद्र प्रसाद"],
-    "answer_en": "Dr. B.R. Ambedkar",
-    "answer_mr": "डॉ. बाबासाहेब आंबेडकर",
-    "explanation_en": "Dr. B.R. Ambedkar is called the Father of Indian Constitution.",
-    "explanation_mr": "डॉ. बाबासाहेब आंबेडकर यांना भारतीय संविधानाचे जनक म्हटले जाते."
+    "question_en": "Who is the current President of India (2025)?",
+    "question_mr": "भारताचे विद्यमान राष्ट्रपती (2025) कोण आहेत?",
+    "options_en": ["Droupadi Murmu", "Narendra Modi", "Amit Shah", "Rajnath Singh"],
+    "options_mr": ["द्रौपदी मुर्मू", "नरेंद्र मोदी", "अमित शहा", "राजनाथ सिंह"],
+    "answer_en": "Droupadi Murmu",
+    "answer_mr": "द्रौपदी मुर्मू",
+    "explanation_en": "Droupadi Murmu became the 15th President of India in July 2022. She is the first tribal woman to hold this position. She continues to serve as President in 2025.",
+    "explanation_mr": "द्रौपदी मुर्मू जुलै 2022 मध्ये भारताच्या 15व्या राष्ट्रपती झाल्या. त्या पहिल्या आदिवासी महिला राष्ट्रपती आहेत आणि 2025 पर्यंत पदावर आहेत."
   },
   {
-    "question_en": "Capital of Maharashtra?",
-    "question_mr": "महाराष्ट्राची राजधानी कोणती?",
-    "options_en": ["Pune", "Mumbai", "Nagpur", "Nashik"],
-    "options_mr": ["पुणे", "मुंबई", "नागपूर", "नाशिक"],
-    "answer_en": "Mumbai",
-    "answer_mr": "मुंबई",
-    "explanation_en": "Mumbai is the capital of Maharashtra.",
-    "explanation_mr": "मुंबई ही महाराष्ट्राची राजधानी आहे."
+    "question_en": "Which Article of Indian Constitution deals with Right to Equality?",
+    "question_mr": "भारतीय संविधानातील समतेच्या अधिकारासाठी कोणता कलम आहे?",
+    "options_en": ["Article 14", "Article 19", "Article 21", "Article 32"],
+    "options_mr": ["कलम 14", "कलम 19", "कलम 21", "कलम 32"],
+    "answer_en": "Article 14",
+    "answer_mr": "कलम 14",
+    "explanation_en": "Article 14 guarantees equality before law and equal protection of laws. It ensures that every citizen is treated equally by the state.",
+    "explanation_mr": "कलम 14 कायद्यापुढे समानता आणि समान संरक्षण हमी देते. सर्व नागरिकांना समान वागणूक मिळावी यासाठी हे महत्त्वाचे आहे."
+  },
+  {
+    "question_en": "Which river is known as 'Dakshin Ganga'?",
+    "question_mr": "'दक्षिण गंगा' म्हणून कोणती नदी ओळखली जाते?",
+    "options_en": ["Krishna", "Godavari", "Kaveri", "Narmada"],
+    "options_mr": ["कृष्णा", "गोदावरी", "कावेरी", "नर्मदा"],
+    "answer_en": "Godavari",
+    "answer_mr": "गोदावरी",
+    "explanation_en": "Godavari is the second longest river in India and is often called the 'Ganga of the South' due to its length and cultural importance.",
+    "explanation_mr": "गोदावरी भारतातील दुसरी सर्वात लांब नदी आहे आणि तिच्या सांस्कृतिक महत्त्वामुळे तिला 'दक्षिण गंगा' म्हणतात."
+  },
+  {
+    "question_en": "Which sector contributes the most to India's GDP (2025)?",
+    "question_mr": "भारताच्या GDP मध्ये सर्वाधिक योगदान कोणत्या क्षेत्राचे आहे (2025)?",
+    "options_en": ["Agriculture", "Industry", "Services", "Mining"],
+    "options_mr": ["कृषी", "उद्योग", "सेवा", "खनन"],
+    "answer_en": "Services",
+    "answer_mr": "सेवा",
+    "explanation_en": "The service sector contributes more than 50% to India's GDP. It includes IT, banking, tourism, and communication services.",
+    "explanation_mr": "सेवा क्षेत्र भारताच्या GDP मध्ये 50% पेक्षा जास्त योगदान देते. यामध्ये IT, बँकिंग, पर्यटन आणि संप्रेषण सेवा येतात."
+  },
+  {
+    "question_en": "Which mission is related to Digital India initiative?",
+    "question_mr": "डिजिटल इंडिया उपक्रमाशी संबंधित मिशन कोणते?",
+    "options_en": ["PMJDY", "BharatNet", "Swachh Bharat", "Make in India"],
+    "options_mr": ["PMJDY", "भारतनेट", "स्वच्छ भारत", "मेक इन इंडिया"],
+    "answer_en": "BharatNet",
+    "answer_mr": "भारतनेट",
+    "explanation_en": "BharatNet aims to provide high-speed internet connectivity to rural India under the Digital India initiative.",
+    "explanation_mr": "भारतनेट प्रकल्प ग्रामीण भारताला उच्च गती इंटरनेट देण्यासाठी डिजिटल इंडिया अंतर्गत राबवला जातो."
+  },
+  {
+    "question_en": "What is the SI unit of Force?",
+    "question_mr": "बलाचे SI एकक काय आहे?",
+    "options_en": ["Joule", "Newton", "Pascal", "Watt"],
+    "options_mr": ["जूल", "न्यूटन", "पास्कल", "वॅट"],
+    "answer_en": "Newton",
+    "answer_mr": "न्यूटन",
+    "explanation_en": "Force is measured in Newton. It is defined as mass times acceleration (F = ma).",
+    "explanation_mr": "बलाचे एकक न्यूटन आहे. F = ma या सूत्रानुसार बल = वस्तुमान × त्वरण."
+  },
+  {
+    "question_en": "Which state has the highest population in India?",
+    "question_mr": "भारतामध्ये सर्वाधिक लोकसंख्या कोणत्या राज्यात आहे?",
+    "options_en": ["Maharashtra", "Bihar", "Uttar Pradesh", "West Bengal"],
+    "options_mr": ["महाराष्ट्र", "बिहार", "उत्तर प्रदेश", "पश्चिम बंगाल"],
+    "answer_en": "Uttar Pradesh",
+    "answer_mr": "उत्तर प्रदेश",
+    "explanation_en": "Uttar Pradesh is the most populous state in India according to the latest estimates.",
+    "explanation_mr": "नवीन अंदाजानुसार उत्तर प्रदेश हे भारतातील सर्वाधिक लोकसंख्या असलेले राज्य आहे."
+  },
+  {
+    "question_en": "Which scheme provides free food grains in India?",
+    "question_mr": "भारतामध्ये मोफत धान्य देणारी योजना कोणती?",
+    "options_en": ["MGNREGA", "PM Garib Kalyan Anna Yojana", "Ayushman Bharat", "PMAY"],
+    "options_mr": ["मनरेगा", "प्रधानमंत्री गरीब कल्याण अन्न योजना", "आयुष्मान भारत", "प्रधानमंत्री आवास योजना"],
+    "answer_en": "PM Garib Kalyan Anna Yojana",
+    "answer_mr": "प्रधानमंत्री गरीब कल्याण अन्न योजना",
+    "explanation_en": "This scheme provides free food grains to poor families, especially during crises like COVID-19.",
+    "explanation_mr": "ही योजना गरीब कुटुंबांना मोफत धान्य देण्यासाठी राबवली जाते, विशेषतः कोविडसारख्या संकटात."
+  },
+
+  {
+    "question_en": "Which city is known as India's IT hub?",
+    "question_mr": "भारताचे IT केंद्र कोणते शहर आहे?",
+    "options_en": ["Mumbai", "Delhi", "Bangalore", "Hyderabad"],
+    "options_mr": ["मुंबई", "दिल्ली", "बंगळुरू", "हैदराबाद"],
+    "answer_en": "Bangalore",
+    "answer_mr": "बंगळुरू",
+    "explanation_en": "Bangalore is known as the Silicon Valley of India due to its strong IT industry presence.",
+    "explanation_mr": "बंगळुरूला भारताचे सिलिकॉन व्हॅली म्हटले जाते कारण तेथे मोठ्या प्रमाणात IT उद्योग आहेत."
+  },
+
+  {
+    "question_en": "Which fundamental right protects life and liberty?",
+    "question_mr": "जीवन आणि स्वातंत्र्याचे संरक्षण करणारा मूलभूत अधिकार कोणता?",
+    "options_en": ["Article 19", "Article 21", "Article 14", "Article 32"],
+    "options_mr": ["कलम 19", "कलम 21", "कलम 14", "कलम 32"],
+    "answer_en": "Article 21",
+    "answer_mr": "कलम 21",
+    "explanation_en": "Article 21 guarantees protection of life and personal liberty. It is one of the most important rights.",
+    "explanation_mr": "कलम 21 जीवन आणि वैयक्तिक स्वातंत्र्याचे संरक्षण करते. हा अत्यंत महत्त्वाचा अधिकार आहे."
   }
 ]
